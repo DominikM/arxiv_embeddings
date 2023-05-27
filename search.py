@@ -12,7 +12,7 @@ def signal_handler(sig, frame):
 signal.signal(signal.SIGINT, signal_handler)
 
 def get_query(question):
-    return [['Represent the Research Paper description for retrieving supporting abstracts: ', question]]
+    return [['Represent the Research Paper question for retrieving supporting abstracts: ', question]]
 
 def get_embedding(model, question):
     return model.encode(get_query(question))[0]
