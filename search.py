@@ -26,7 +26,7 @@ def loop(model, cur):
             embedding = get_embedding(model, question)            
 
             results = cur.execute(
-                'SELECT (titles.title, titles.doi) FROM titles JOIN abstracts ON titles.doi = abstracts.doi ORDER BY abstracts.embedding <-> %s LIMIT 15',
+                'SELECT (titles.title, titles.doi) FROM titles JOIN abstracts ON titles.doi = abstracts.doi ORDER BY abstracts.embedding <=> %s LIMIT 15',
                                    (embedding,)).fetchall()
 
             print_results(results)
